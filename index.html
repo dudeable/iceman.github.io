@@ -1,1 +1,143 @@
-<!DOCTYPE html> <html> <head> <title>Copywriting Services - Get Compelling Content</title> <link rel="stylesheet" type="text/css" href="style.css"> </head> <body> <header> <h1>Copywriting Services - Get Compelling Content</h1> </header> <section> <h2>What is Copywriting?</h2> <p>Copywriting is the art of writing words that drive people to take action. It's the process of creating persuasive and engaging content that resonates with your target audience and motivates them to buy, sign up, or take a specific action.</p> <img src="images/copywriting.jpg" alt="Copywriting"> </section> <section> <h2>Why Do You Need Copywriting Services?</h2> <p>Effective copywriting can help you stand out from the competition, increase conversions, and drive business growth. Whether you need website content, social media posts, or email marketing campaigns, our copywriting services can help you achieve your goals.</p> <img src="images/why-copywriting.jpg" alt="Why Copywriting"> </section> <section> <h2>Get in Touch</h2> <p>Ready to take your content to the next level? Send us an email at <a href="mailto:yaw.bempong35@gmail.com">yaw.bempong35@gmail.com</a> to request our copywriting services. We'll work with you to understand your goals and create compelling content that drives results.</p> <img src="images/get-in-touch.jpg" alt="Get in Touch"> </section> <footer> <p>Copyright © 2023 Copywriting Services - Get Compelling Content</p> </footer> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Maya ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffeef2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #adb5bd;
+            color: white;
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heartContainer"></div>
+
+    <div class="container" id="mainCard">
+        <h1 id="question">Maya, will you be my Valentine? 🌹</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="successCard">
+        <h1>Yay! I knew you'd say yes! ❤️</h1>
+        <p>See you on the 14th, Maya!</p>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const mainCard = document.getElementById('mainCard');
+        const successCard = document.getElementById('successCard');
+        let yesSize = 1.2;
+
+        // Make the 'No' button run away
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+
+            // Make the 'Yes' button bigger every time she tries to click 'No'
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
+        });
+
+        // Success state
+        yesBtn.addEventListener('click', () => {
+            mainCard.classList.add('hidden');
+            successCard.classList.remove('hidden');
+            startConfetti();
+        });
+
+        // Simple heart background effect
+        function startConfetti() {
+            for(let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'absolute';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animation = `float ${Math.random() * 3 + 2}s linear forwards`;
+                document.getElementById('heartContainer').appendChild(heart);
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes float {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+            }
+        }
+    </style>
+</body>
+</html>
